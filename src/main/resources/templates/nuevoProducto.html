@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Producto</title>
+</head>
+<body>
+    <h1>Agregar nuevo producto</h1>
+    <form action="/producto/nuevo" method="post">
+        <div>
+            <label>Nombre</label>
+            <input type="text" name="nombre" th:value="${producto.nombre}" required>
+        </div>
+        <div>
+            <label>Precio</label>
+            <input type="number" name="precio" th:value="${producto.precio}" required>
+        </div>
+        <button type="submit">Modificar</button>
+    </form>
+</body>
+</html>
