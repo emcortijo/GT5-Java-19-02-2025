@@ -1,11 +1,15 @@
 package com.example.GestionProductos.model;
+
+import java.util.Random;
+
 public class Producto {
     private int ID;
     private String nombre;
     private double precio;
 
-    public Producto(int ID, String nombre, double precio) {
-        this.ID = ID;
+    public Producto(String nombre, double precio) {
+        Random r = new Random();
+        this.ID = r.nextInt();
         this.nombre = nombre;
         this.precio = precio;
     }
