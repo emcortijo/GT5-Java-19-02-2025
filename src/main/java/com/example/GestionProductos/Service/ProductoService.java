@@ -1,4 +1,4 @@
-package com.example.GestionProductos.Service;
+package com.example.GestionProductos.service;
 
 import java.util.HashMap;
 import java.util.Map;

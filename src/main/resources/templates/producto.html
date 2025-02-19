@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PROGRAMA DE GESTION DE PRODUCTOS</title>
+</head>
+<body>
+    <h1>Gestion de producto:</h1>
+    <a class="agregar-producto" href="/producto/nuevo">Agregar producto</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>ID</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="entry : ${producto}">
+                <td th:text="${entry.key}"></td>
+                <td th:text="${entry.value.nombre}"></td>
+                <td th:text="${entry.value.ID}"></td>
+                <td th:text="${entry.value.precio}"></td>
+
+                <td>
+                    <a class="modificar" th:ref="@{'/producto/modificar/' + ${entry.key}}">✏️</a>
+                    <form th:action="@{'/producto/eliminar/' + ${entry.key}}" method="post" style="display: inline;">
+                        <button class="eliminar" type="submit" th:disabled="${entry.value.favorito}">🗑️</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="toast" id="toast" th:text ></div>
+
+    <script>
+        function showToast() {
+            let toast = document.getElementById("toast")
+            if (toast.textContent.trim() !== "") {
+                toast.classList.add("show");
+                setTimeout(function() {
+                    toast.classList.remove("show");
+                }, 1500)
+
+            }
+        }
+        window.onload = showToast();
+    </script>
+</body>
+</html>
